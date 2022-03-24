@@ -1,0 +1,53 @@
+---
+- name: Create base path
+  file:
+    path: "{{ generic_rproxy_base_path }}"
+    state: directory
+    recurse: true
+    owner: "{{ generic_rproxy_uid }}"
+    group: "{{ generic_rproxy_gid }}"
+
+- name: Create additional paths
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: true
+    owner: "{{ generic_rproxy_uid }}"
+    group: "{{ generic_rproxy_gid }}"
+  loop: "{{ generic_rproxy_additional_path }}"
+
+- name: Create nginx.conf
+  template:
+    src: nginx.conf.j2
+    dest: "{{ generic_rproxy_conf_path }}/nginx.conf"
+    owner: "{{ generic_rproxy_uid }}"
+    group: "{{ generic_rproxy_gid }}"
+
+- name: Create ssl path
+  file:
+    path: "{{ generic_rproxy_base_path }}/ssl/{{ generic_rproxy_domain }}"
+    state: directory
+    recurse: true
+    owner: "{{ generic_rproxy_uid }}"
+    group: "{{ generic_rproxy_gid }}"
+
+- name: Deploy container
+  community.docker.docker_container:
+    name: "{{ generic_rproxy_container_name }}"
+    image: "{{ generic_rproxy_container_image }}"
+    user: "{{ generic_rproxy_uid }}:{{ generic_rproxy_gid }}"
+    published_ports: "{{ generic_rproxy_container_ports }}"
+    env: "{{ generic_rproxy_container_env | combine(generic_rproxy_container_additional_env) }}"
+    volumes: "{{ generic_rproxy_container_volumes }}"
+    links: "{{ generic_rproxy_container_links }}"
+    state: "{{ generic_rproxy_container_state }}"
+    recreate: "{{ generic_rproxy_container_recreate }}"
+    auto_remove: "{{ generic_rproxy_container_auto_remove }}"
+    cpu_quota: "{{ generic_rproxy_container_cpu_quota }}"
+    memory_reservation: "{{ generic_rproxy_container_memory_reservation }}"
+    memory_swap: "{{ generic_rproxy_container_memory_swap }}"
+    network_mode: "{{ generic_rproxy_container_network_mode }}"
+    networks: "{{ generic_rproxy_container_networks }}"
+    restart: "{{ generic_rproxy_container_restart }}"
+    restart_policy: "{{ generic_rproxy_container_restart_policy }}"
+    labels: "{{ generic_rproxy_container_labels }}"
