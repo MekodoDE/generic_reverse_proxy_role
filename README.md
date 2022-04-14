@@ -15,10 +15,10 @@ Role Variables
 For all variables please see `defaults/main.yml`.
 
     generic_rproxy_issue_domain:
-    - decgn-pr-abc.de.valtech.com
-    - decgn-pr-xyz.de.valtech.com
+    - abc.example.tld
+    - xyz.example.tld
 
-Set the list of all domains the certificate should represent. Default is `hostname + .de.valtech.com`
+Set the list of all domains the certificate should represent. Default is `hostname`
 
     generic_rproxy_priv_key_path
 

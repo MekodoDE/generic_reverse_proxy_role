@@ -3,7 +3,7 @@ generic_rproxy_additional_path: []
 generic_rproxy_uid: 0
 generic_rproxy_gid: 0
 
-generic_rproxy_domain: "{{ ansible_host }}.de.valtech.com"
+generic_rproxy_domain: "{{ ansible_host }}"
 generic_rproxy_redirects: {}
 generic_rproxy_conf_path: "{{ generic_rproxy_base_path }}"
 
