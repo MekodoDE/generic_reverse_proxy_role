@@ -1,0 +1,10 @@
+---
+- hosts: all
+  roles:
+    - generic_rproxy_role
+  vars:
+    generic_rproxy_domain: "example.com"
+    generic_rproxy_redirects:
+      "/": "http://jenkins:8080/"
+    generic_rproxy_container_links:
+      - jenkins

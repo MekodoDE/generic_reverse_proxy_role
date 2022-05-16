@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles:
+    - generic_rproxy_role
+  vars:
+    generic_rproxy_domain: "example.com"
+    generic_rproxy_redirects:
+      "/": "http://example.org/"
+      "/net": "http://example.net/"

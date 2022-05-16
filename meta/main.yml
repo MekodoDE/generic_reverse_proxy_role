@@ -1,6 +1,6 @@
 galaxy_info:
   role_name: generic_rproxy_role
-  description: A role to deploy ACME in a Docker container to issue and renew Let's Encrypt certificates.
+  description: A role to deploy a simple Nginx reverse proxy for SSL/TLS termination in a Docker container.
   author: Valtech Mobility
   company: Valtech Mobility
 
@@ -14,8 +14,8 @@ galaxy_info:
     - ">= 18.04"
 
   galaxy_tags:
-  - acme
-  - letsencrypt
+  - nginx
+  - reverse proxy
   - tls
   - ssl
   - certificate
