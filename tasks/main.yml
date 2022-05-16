@@ -51,3 +51,7 @@
     restart: "{{ generic_rproxy_container_restart }}"
     restart_policy: "{{ generic_rproxy_container_restart_policy }}"
     labels: "{{ generic_rproxy_container_labels }}"
+
+- name: Include OS specific tasks
+  include_tasks:
+    file: "{{ role_path }}/tasks/{{ ansible_distribution | lower }}.yml"

@@ -1,0 +1,7 @@
+---
+- name: Allow ports in ufw
+  community.general.ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  loop: "{{ generic_rproxy_allow_firewall_ports }}"
