@@ -50,34 +50,34 @@ generic_rproxy_container_additional_env: {}
 generic_rproxy_container_labels: "sh.acme.autoload.domain={{ generic_rproxy_domain }}"
 
 # Enable auto removal when the container process exits
-generic_acme_container_auto_remove: no
+generic_rproxy_container_auto_remove: no
 
 # Limit for CPU
-generic_acme_container_cpu_quota: 0
+generic_rproxy_container_cpu_quota: 0
 
 # Limit for memory (RAM)
-generic_acme_container_memory: 0
+generic_rproxy_container_memory: 0
 
 # Reservation of memory (RAM)
-generic_acme_container_memory_reservation: 0
+generic_rproxy_container_memory_reservation: 0
 
 # Total limit for memory (RAM)
-generic_acme_container_memory_swap: 0
+generic_rproxy_container_memory_swap: 0
 
 # Network mode of the container e.g. bridge, <container id>, host
-generic_acme_container_network_mode: "default"
+generic_rproxy_container_network_mode: "default"
 
 # List of networks the container belongs to
-generic_acme_container_networks: []
+generic_rproxy_container_networks: []
 
 # Force recreation of the container
-generic_acme_container_recreate: yes  # needs to yes because changes in the volumes can cause errors
+generic_rproxy_container_recreate: no
 
 # Force restart of the container if already started
-generic_acme_container_restart: no
+generic_rproxy_container_restart: no
 
 # Container restart policy e.g always, no, on-failure, unless-stopped
-generic_acme_container_restart_policy: "unless-stopped"
+eneric_rproxy_container_restart_policy: "unless-stopped"
 
 # Set the state of the container e.g absent, present, stopped, started
-generic_acme_container_state: "started"
+generic_rproxy_container_state: "started"
