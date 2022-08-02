@@ -77,7 +77,7 @@ generic_rproxy_container_recreate: no
 generic_rproxy_container_restart: no
 
 # Container restart policy e.g always, no, on-failure, unless-stopped
-eneric_rproxy_container_restart_policy: "unless-stopped"
+generic_rproxy_container_restart_policy: "unless-stopped"
 
 # Set the state of the container e.g absent, present, stopped, started
 generic_rproxy_container_state: "started"
